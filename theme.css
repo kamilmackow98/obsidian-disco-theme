@@ -3,6 +3,7 @@
 /* https://color-name-generator.com/ */
 
 /* Accent color : rgb(60, 153, 220) */
+/* Cool color : hsl(180, 80%, 60%) */
 
 :root {
   --font-heading: "Montserrat", sans-serif;
@@ -17,6 +18,7 @@
   --midsummer: #fad7aa;
   --duckling: #ffae57;
 
+  --kul-sharif-blue: #80d4ff;
   --fennel-flower: #78aaf0;
   --tropical-blue: #afc8f0;
   --watercourse: #5ccfe6;
@@ -42,17 +44,15 @@ body {
   --checklist-done-decoration: none;
 
   /* Code and codeblock properties */
-  --code-punctuation: var(--timber-wolf-white);
+  --code-punctuation: var(--super-silver);
   --code-function: var(--zinnia-gold);
   --code-property: var(--watercourse);
   --code-operator: var(--duckling);
   --code-comment: var(--blue-zephyr);
   --code-keyword: var(--duckling);
   --code-string: var(--zinnia-gold);
-  --code-normal: var(--timber-wolf-white);
+  --code-normal: var(--super-silver);
   --code-tag: var(--watercourse);
-
-  /* --background-modifier-hover: var(--color-accent); */
 
   /* Headings properties */
   --h1-color: var(--midsummer);
@@ -69,21 +69,18 @@ body {
   --h5-font: var(--font-heading);
   --h6-font: var(--font-heading);
 
-  /* Color properties */
-  --base-h: 212; /* Base hue */
-  --base-s: 15%; /* Base saturation */
-  --base-d: 13%; /* Base lightness Dark Mode  - 0 is black */
-  --base-l: 97%; /* Base lightness Light Mode  - 100 is white */
-  --accent-h: 215; /* Accent hue */
-  --accent-s: 75%; /* Accent saturation */
-  --accent-d: 70%; /* Accent lightness Dark Mode */
-  --accent-l: 60%; /* Accent lightness Light Mode */
+  --highlight: rgba(120, 170, 240, 0.3);
 
-  /* TODO : Tags related properties */
-  --tag-background-color-l: #bde1d3;
-  --tag-font-color-l: #1d694b;
-  --tag-background-color-d: #1d694b;
-  --tag-font-color-d: #ffffff;
+  --background-modifier-border-focus: var(--highlight);
+  --text-highlight-bg: var(--highlight);
+
+  --accent-h: 200; /* Accent hue */
+  --accent-s: 80%; /* Accent saturation */
+  --accent-l: 65%; /* Accent lightness */
+}
+
+button.mod-cta {
+  font-weight: 500;
 }
 
 img {
@@ -96,38 +93,49 @@ li::marker {
 
 :not(pre) > code,
 .cm-inline-code {
-  color: hsl(180, 80%, 60%) !important;
-  font-weight: 500 !important;
+  background-color: var(--color-base-25) !important;
+  letter-spacing: 0.025em;
+  font-weight: 600;
 }
 
-.markdown-preview-view {
-  letter-spacing: 0.01em;
-  line-height: 1.6;
+/* Tags related properties */
+body {
+  /* Light theme */
+  --tag-background-color-l: var(--watercourse);
+  --tag-font-color-l: var(--color-base-20);
+
+  /* Dark theme */
+  --tag-background-color-d: var(--watercourse);
+  --tag-font-color-d: var(--color-base-20);
+}
+
+a.tag,
+.cm-hashtag {
+  padding-bottom: 0.45em;
+  font-weight: 700;
 }
 
 .theme-dark {
-  --color-base-00: #1c2127; /* Main editor window */
-  --color-base-10: #282c34; /* Code blocks */
-  --color-base-20: #181c20; /* Top unselected unfocused titlebar */
-  --color-base-25: #2c313c; /* Seems like nothing */
-  --color-base-30: #35393e; /* Default button and borders */
-  --color-base-35: #3f3f3f; /* Seems like nothing */
-  --color-base-35: #3f3f3f; /* Tabs separator */
-  --color-base-100: var(--timber-wolf-white);
+  --color-base-00: hsl(220, 20%, 13%); /* Main editor window */
+  --color-base-10: hsl(220, 20%, 17%); /* Code blocks */
+  --color-base-20: hsl(220, 20%, 13%); /* Sidebar and unfocused titlebar */
+  --color-base-25: hsl(220, 20%, 20%); /* Inline code blocks */
+  --color-base-30: hsl(220, 20%, 22%); /* Default button and borders */
+  --color-base-35: hsl(220, 20%, 24%); /* Tabs separator */
+  --color-base-100: hsl(220, 20%, 80%); /* Normal text */
+
+  --background-modifier-hover: hsla(220, 20%, 70%, 0.125);
+  --text-on-accent: var(--color-base-00) !important;
 
   --titlebar-background-focused: var(--color-base-10);
-  /* --text-selection: hsla(var(--interactive-accent-hsl), 0.25); */
+  --text-selection: rgba(120, 170, 240, 0.2);
 
-  --tag-background: var(--tag-background-color-d);
-  --tag-color: var(--tag-font-color-d);
+  --base-h: 200; /* Hue */
+  --base-s: 20%; /* Saturation */
+  --base-l: 10%; /* Lightness */
 
-  --text-muted: hsl(var(--base-h), var(--base-s), calc(var(--base-d) + 65%));
-  --text-faint: hsl(var(--base-h), var(--base-s), calc(var(--base-d) + 30%));
-  --text-formatted: hsl(
-    var(--base-h),
-    var(--base-s),
-    calc(var(--base-d) + 50%)
-  );
+  --text-muted: hsl(var(--base-h), var(--base-s), calc(var(--base-l) + 60%));
+  --text-faint: hsl(var(--base-h), var(--base-s), calc(var(--base-l) + 30%));
 }
 
 .markdown-rendered h1,
@@ -139,9 +147,14 @@ li::marker {
   margin-block: 2rem;
 }
 
+/* External link icon */
 .external-link {
   background-position-y: 55%;
   padding-right: 18px;
+}
+
+.modal.mod-settings.mod-sidebar-layout {
+  border-radius: 6px;
 }
 
 /* --------------------------------- */
@@ -149,39 +162,13 @@ li::marker {
 /* --------------------------------- */
 
 body .markdown-source-view.mod-cm6 .cm-line.HyperMD-codeblock {
-  padding-left: var(--size-4-1);
+  padding-left: 0.75rem;
 }
 
 body
-  .HyperMD-codeblock.cm-line:not(
-    .HyperMD-codeblock-begin,
-    .HyperMD-codeblock-end
-  ) {
-  padding-left: 3rem;
-}
-
-body
-  .HyperMD-codeblock:not(
-    .HyperMD-codeblock-begin,
-    .HyperMD-codeblock-end
-  )::before {
-  background-color: var(--code-background);
-  color: var(--text-muted);
-  text-align: right;
-  width: 1.5rem;
-
-  counter-increment: codeblock-line-numbers;
-  content: counter(codeblock-line-numbers);
-
-  position: absolute;
-  left: 0;
-
-  font-size: 0.75em;
-  line-height: 2;
-}
-
-body .HyperMD-codeblock-begin {
-  counter-reset: codeblock-line-numbers;
+  .markdown-source-view.mod-cm6
+  .cm-line.HyperMD-codeblock.HyperMD-codeblock-begin {
+  padding-top: 0.5rem;
 }
 
 body .markdown-preview-view pre {
@@ -256,6 +243,11 @@ div.kanban-plugin__lane-title-count {
 
 .kanban-plugin__markdown-preview-view {
   line-height: var(--line-height-normal);
+}
+
+.kanban-plugin__item-title-wrapper,
+.kanban-plugin__item-input {
+  background: var(--color-base-10);
 }
 
 /* ------------------------------------------- */
