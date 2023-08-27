@@ -2,18 +2,19 @@
 
 /* https://color-name-generator.com/ */
 
-/* Accent color : rgb(60, 153, 220) */
+/* Accent color : #5ebeed or hsl(200, 80%, 65%) */
 /* Cool color : hsl(180, 80%, 60%) */
 
 :root {
   --font-heading: "Montserrat", sans-serif;
-  --font-reading: "Muli", sans-serif;
+  --font-reading: "Work Sans", sans-serif;
 
   /* Theme colors */
   --timber-wolf-white: #d9d7ce;
   --hundred-waters: #afb7cf;
   --super-silver: #eee;
 
+  --sun-splashed: #fdd695; /* Mix of Zinnia Gold and Midsummer */
   --zinnia-gold: #ffd580;
   --midsummer: #fad7aa;
   --duckling: #ffae57;
@@ -24,6 +25,7 @@
   --watercourse: #5ccfe6;
   --blue-zephyr: #5c6773;
 
+  --brink-pink: #ff6680;
   --sulu: #bae67e;
 }
 
@@ -32,27 +34,15 @@ body {
   --bold-color: var(--super-silver);
   --italic-color: var(--midsummer);
 
+  --bold-weight: 500;
+
   /* Internal and external properties */
   --link-external-decoration: none;
   --link-decoration: none;
 
-  --link-external-decoration-hover: none;
-  --link-decoration-hover: none;
-
   /* Checklist properties */
   --checklist-done-color: var(--text-faint);
   --checklist-done-decoration: none;
-
-  /* Code and codeblock properties */
-  --code-punctuation: var(--super-silver);
-  --code-function: var(--zinnia-gold);
-  --code-property: var(--watercourse);
-  --code-operator: var(--duckling);
-  --code-comment: var(--blue-zephyr);
-  --code-keyword: var(--duckling);
-  --code-string: var(--zinnia-gold);
-  --code-normal: var(--super-silver);
-  --code-tag: var(--watercourse);
 
   /* Headings properties */
   --h1-color: var(--midsummer);
@@ -197,6 +187,52 @@ body .copy-code-button.copy-code-button.copy-code-button {
   white-space: pre;
 }
 
+/* ------------------------------------------- */
+/* ----------| SYNTAX HIGHLIGHTING |---------- */
+/* ------------------------------------------- */
+
+/* Example https://github.com/AGMStudio/prism-theme-one-dark */
+
+body {
+  /* Code and codeblock properties */
+  --code-important: var(--kul-sharif-blue);
+  --code-punctuation: var(--super-silver);
+  --code-function: var(--sun-splashed);
+  --code-property: var(--super-silver);
+  --code-operator: var(--super-silver);
+  --code-normal: var(--super-silver);
+  --code-comment: var(--blue-zephyr);
+  --code-tag: var(--kul-sharif-blue);
+  --code-keyword: var(--duckling);
+  --code-string: var(--sulu);
+}
+
+.cm-hmd-codeblock.cm-variable {
+  color: var(--super-silver);
+}
+
+.token.boolean,
+.cm-attribute {
+  color: var(--duckling) !important;
+}
+
+.token.class-name {
+  color: var(--kul-sharif-blue);
+}
+
+.token.important,
+.token.bold {
+  font-weight: bold;
+}
+
+.token.attr-name {
+  color: var(--duckling);
+}
+
+.token.attr-value {
+  color: var(--sulu);
+}
+
 /* ------------------------------------- */
 /* ----------| KANBAN PLUGIN |---------- */
 /* ------------------------------------- */
@@ -248,38 +284,6 @@ div.kanban-plugin__lane-title-count {
 .kanban-plugin__item-title-wrapper,
 .kanban-plugin__item-input {
   background: var(--color-base-10);
-}
-
-/* ------------------------------------------- */
-/* ----------| SYNTAX HIGHLIGHTING |---------- */
-/* ------------------------------------------- */
-
-/* Example https://github.com/AGMStudio/prism-theme-one-dark */
-
-.token.boolean,
-.token.number,
-.token.symbol,
-.token.builtin,
-.token.attr-name,
-.token.deleted,
-.cm-attribute,
-.cm-number,
-.cm-property.cm-string {
-  color: var(--duckling) !important;
-}
-
-.token.class-name,
-.token.constant,
-.cm-atom,
-code .cm-tag,
-.cm-variable-2,
-.cm-type {
-  color: var(--timber-wolf-white);
-}
-
-.token.important,
-.token.bold {
-  font-weight: bold;
 }
 
 /* ---------------------------------------- */
