@@ -8,9 +8,9 @@
 
 ### Fonts
 
-Work Sans or Atkinson Hyperlegible as text font
-
-Montserrat for headings
+- Work Sans or Atkinson Hyperlegible as text font
+- Montserrat for headings
+- Consolas for code
 
 ## TODO
 
